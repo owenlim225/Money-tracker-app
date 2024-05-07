@@ -12,7 +12,7 @@ from idlelib.tooltip import Hovertip
 
 
 # Seperate file for the app functions
-from function_list import add_button, add_entry_win, add_to_db, previous_date, next_date,edit_entries_window, load_entries, update_amount_label
+from function_list import add_button, add_entry_win, add_to_db, previous_date, next_date,edit_entries_window, load_entries, update_amount_label, clear_data
 from currency_conv import CurrencyConverter
 from calc import Calculator
 
@@ -248,6 +248,12 @@ class MyApp(tk.Tk):
         # self.btn_search = Button(image=self.btn_search_img, borderwidth=0, highlightthickness=0,
         #                          command=lambda: print("btn_search clicked"), relief="flat")
         # self.btn_search.place(x=617.0, y=525.0, width=70.0, height=70.0)
+        
+        # Search button
+        self.btn_filter_img = PhotoImage(file=self.relative_to_assets("btn_filter.png"))
+        self.btn_filter = Button(image=self.btn_filter_img, borderwidth=0, highlightthickness=0,
+                                 command=lambda: print("btn_search clicked"), relief="flat")
+        self.btn_filter.place(x=617.0, y=525.0, width=70.0, height=70.0)
 
 
 
@@ -515,13 +521,15 @@ Christian Jude N. Villaber
         
     def update_amount_label(self):
         update_amount_label(self)         
-        
+    
+    def clear_data(self):
+        clear_data(self) 
     
 # Start the program
 if __name__ == "__main__":
-    # app = LoadingScreen()
-    # app.mainloop()
-    
-    app = MyApp()
+    app = LoadingScreen()
     app.mainloop()
+    
+    # app = MyApp()
+    # app.mainloop()
 
